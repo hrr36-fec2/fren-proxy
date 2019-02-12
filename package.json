@@ -1,0 +1,41 @@
+{
+  "name": "scootify-proxy",
+  "version": "1.0.0",
+  "description": "fec prj",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrr36-fec2/fren-proxy.git"
+  },
+  "author": "hrr36 fec team 2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hrr36-fec2/fren-proxy/issues"
+  },
+  "homepage": "https://github.com/hrr36-fec2/fren-proxy#readme",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/runtime": "^7.3.1",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mariadb": "^2.0.3",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "styled-components": "^4.1.3",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  }
+}
