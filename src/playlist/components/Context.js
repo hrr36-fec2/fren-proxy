@@ -1,21 +1,40 @@
 import React from 'react';
 import axios from 'axios';
+import socketIO from 'socket.io-client';
 
 export const PlayListContext = React.createContext();
 
 export default class ContextWrap extends React.Component {
-  state = {
-    isPlaying : false,
-    activeTrack: '',
-    activeTrackDuration: '',
-    playlist_owner: '',
-    playlist_name: '',
-    playlist_id: '',
-    song_tracks: [],
-    song_count: 0
+  constructor() {
+    super();
+    this.socket = null;
+    this.state = {
+      isPlaying : false,
+      activeTrack: '',
+      activeTrackDuration: '',
+      playlist_owner: '',
+      playlist_name: '',
+      playlist_id: '',
+      song_tracks: [],
+      song_count: 0
+    }
   }
-  componentDidMount () {
-    this.fetchCurrentPlaylistData();
+  componentDidMount() {
+    // this.fetchCurrentPlaylistData();
+    this.socket = socketIO().connect('http://localhost:3000/');
+    this.socket.on('connect', function() {
+      console.log('connected to server thru socketIO')
+    });
+    this.socket.emit('getPlaylistData', '1', (data) => {
+      let songs = JSON.parse(data.songs);
+      this.setState({
+        playlist_owner: data.owner,
+        playlist_name: data.name,
+        playlist_id: data._id,
+        song_tracks: songs,
+        song_count: songs.length - 1
+      });
+    });
   }
   fetchCurrentPlaylistData = () => {
     axios

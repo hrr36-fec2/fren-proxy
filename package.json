@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "start": "nodemon server.js"
+    "dev": "parcel ./src/index.html --open",
+    "build": "parcel build ./src/index.html --out-dir public",
+    "start": "nodemon server/"
   },
   "repository": {
     "type": "git",
@@ -24,18 +25,21 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "farmhash": "^2.1.0",
     "mariadb": "^2.0.3",
     "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react-dom": "^16.8.1",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "styled-components": "^4.1.3",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3"
+    "parcel-bundler": "^1.11.0",
+    "styled-components": "^4.1.3"
   }
 }
