@@ -14,11 +14,11 @@ class Recommends extends React.Component {
   }
 
   componentDidMount() {
-    // this.getRecommends();
+    this.getRecommends();
   }
 
   getRecommends() {
-    axios.get('http://127.0.0.1:3003/recommends')
+    axios.get('http://localhost:3003/recommends')
       .then(res => {
         this.setState({ tracks: res.data });
       })

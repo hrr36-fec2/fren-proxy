@@ -12,7 +12,7 @@
     "dev": "webpack --watch --mode development",
     "start": "nodemon server/server.js",
     "seed": "node server/db/seed.js",
-    "db": "mysql -uroot -p <'server/schema.sql'"
+    "db": "runmysql -u root -p <'server/schema.sql'"
   },
   "dependencies": {
     "axios": "^0.18.0",
