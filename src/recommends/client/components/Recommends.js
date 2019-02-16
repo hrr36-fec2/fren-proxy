@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import socketIO from 'socket.io-client';
 import Tracks from './tracks.js';
 import { Refresh, Container, Toggle, Header, Info, Arrow, Title, Flex } from './styles.js';
 
 class Recommends extends React.Component {
   constructor() {
     super();
+    this.socket = null;
     this.state = {
       tracks: [],
       fade: false,
@@ -14,15 +16,19 @@ class Recommends extends React.Component {
   }
 
   componentDidMount() {
+    this.socket = socketIO.connect('http://localhost:3000/')
     this.getRecommends();
   }
 
   getRecommends() {
-    axios.get('http://localhost:3003/recommends')
-      .then(res => {
-        this.setState({ tracks: res.data });
-      })
-      .catch(err => { console.log(err); });
+    // axios.get('http://localhost:3003/recommends')
+    //   .then(res => {
+    //     this.setState({ tracks: res.data });
+    //   })
+    //   .catch(err => { console.log(err); });
+    this.socket.emit('getRecommendsData', (data) => {
+      this.setState({ tracks: data })
+    })
   }
 
   handleToggle() {

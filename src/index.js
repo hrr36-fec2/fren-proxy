@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import PlayList from './playlist/PlayList.js';
+// import PlayList from './playlist/PlayList.js';
+import PlayList from './playlist-client/PlayList.js';
 import Recommends from './recommends/client/components/Recommends.js';
-
-// console.log(Recommends);
 
 const App = () => {
   return (
