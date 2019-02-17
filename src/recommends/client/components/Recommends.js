@@ -16,7 +16,7 @@ class Recommends extends React.Component {
   }
 
   componentDidMount() {
-    this.socket = socketIO.connect('http://localhost:3000/')
+    this.socket = socketIO.connect('http://54.218.79.7:3000')
     this.getRecommends();
   }
 

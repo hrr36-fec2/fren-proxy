@@ -70,6 +70,8 @@ src/pl61-recommends/node_modules
 
 # temp ignore
 src/playlist/
-src/playlist-client/
 src/xample/
 server/
+
+Dockerrun.aws.json
+nodemon.json
