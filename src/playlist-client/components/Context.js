@@ -1,13 +1,10 @@
 import React from 'react';
-import axios from 'axios';
-import socketIO from 'socket.io-client';
 
 export const PlayListContext = React.createContext();
 
 export default class ContextWrap extends React.Component {
   constructor() {
     super();
-    this.socket = null;
     this.state = {
       isPlaying : false,
       activeTrack: '',
@@ -20,31 +17,26 @@ export default class ContextWrap extends React.Component {
     }
   }
   componentDidMount() {
-    this.socket = socketIO().connect('http://54.218.79.7:3000');
     this.fetchCurrentPlaylistData();
+    this.props.socket.on('resetOther', (payload)=> {
+      if (!(payload.emitter === 'PlayList')) {
+        this.setState({ isPlaying: false })
+      }
+    });
+    this.props.socket.on('newTrackAdded', (data) => {
+      let addedSong = JSON.parse(data.songs);
+      this.setState({
+        song_tracks: this.state.song_tracks.concat(addedSong[0])
+      });
+    });
+    this.props.socket.on('playerStart', () => {
+      this.setState({
+        isPlaying: !this.state.isPlaying
+      });
+    });
   }
   fetchCurrentPlaylistData = () => {
-    // axios
-    //   .get('http://localhost:3002/api/playlist/1')
-    //   // .get('/api/playlist/1')
-    //   .then((results) => {
-    //     if (!results) {
-    //       throw 'failed to get data';
-    //     }
-    //     let songs = JSON.parse(results.data.songs);
-    //     this.setState({
-    //       playlist_owner: results.data.owner,
-    //       playlist_name: results.data.name,
-    //       playlist_id: results.data._id,
-    //       song_tracks: songs,
-    //       song_count: songs.length - 1
-    //     });
-    //     return;
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    this.socket.emit('getPlaylistData', '1', (data) => {
+    this.props.socket.emit('getPlaylistData', '1', (data) => {
       let songs = JSON.parse(data.songs);
       this.setState({
         playlist_owner: data.owner,
@@ -66,6 +58,10 @@ export default class ContextWrap extends React.Component {
       isPlaying: !this.state.isPlaying
     });
     this.changeActiveTrack(track_id, track_duration);
+    this.props.socket.emit('doPlayTrack', {
+      emitter: 'PlayList',
+      track_id
+    });
   }
   handleRemoveTrack = (index, track_id) => {
     let newList = [...this.state.song_tracks];
@@ -89,5 +85,3 @@ export default class ContextWrap extends React.Component {
     )
   }
 }
-
-// {"track_id": "89433", "track_title": "nostalgia of an ex-gangsta-rapper", "track_duration": "00:05:30", "artist_name": "deef", "album_title": "Beat Scene Routine", "album_image_file": "images/albums/deef_-_Beat_Scene_Routine_-_20130821140335983.jpg", "track_url": "https://freemusicarchive.org/music/no_curator/deef/Beat_Scene_Routine/deef_-_04_-_nostalgia_of_an_ex-gangsta-rapper.mp3"}

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Recommends from './components/Recommends.js';
+import Recommends from './components/recommends.jsx';
 
 ReactDOM.render(
   React.createElement(Recommends),

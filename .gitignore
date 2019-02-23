@@ -70,8 +70,14 @@ src/pl61-recommends/node_modules
 
 # temp ignore
 src/playlist/
+src/playback/
+src/recommends/
 src/xample/
 server/
+x/
 
 Dockerrun.aws.json
 nodemon.json
+
+# bundler in mind
+# https://pax.js.org/

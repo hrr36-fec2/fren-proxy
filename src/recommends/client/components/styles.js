@@ -18,7 +18,7 @@ export const Header = styled.div`
 
 export const Flex = styled.div`
   display: flex;
-  color: #D3D3D3;
+  color: #c3c3c3;
 
   &:hover {
     color: #FFFFFF;
@@ -64,7 +64,7 @@ export const Item = styled.div`
 `;
 
 export const Icon = styled.i`
-  color: #D3D3D3;
+  color: ${props => props.playing ? '#00ff00' : props.fas === 'fas fa-play' ? '#FFFFFF' : '#c3c3c3'};
   width: 20px;
   padding: 0.5rem;
 `;
@@ -79,30 +79,49 @@ export const Arrow = styled(Icon)`
 export const Wrap = styled.div`
   flex: 1;
   min-width: 0;
-
-  > div {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 `;
 
 export const Title = styled.div`
-  color: #FFFFFF;
+  display: block;
+  color: ${props => props.playing ? '#00ff00' : '#FFFFFF'};
   font-size: 1rem;
   cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Info = styled.div`
-  color: #D3D3D3;
+  color: #c3c3c3;
   font-size: 0.875rem;
   cursor: default;
+  white-space: nowrap;
+`;
+
+export const Subinfo = styled(Info)`
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+
+  color: #c3c3c3;
+  font-size: 0.875rem;
+  cursor: default;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;
 
 export const Button = styled.button`
   background-color: #000000;
   border-style: solid;
-  border-color: #A9A9A9;
+  border-color: #c3c3c3;
   border-radius: 20px;
   border-width: 3px;
   color: #FFFFFF;

@@ -13,14 +13,16 @@ import Ellipsis from '../Ellipsis';
 
 const Info = () => {
   let
-    ctx = useContext(PlayListContext);
+    ctx = useContext(PlayListContext),
+    rand = Math.floor(Math.random()*ctx.song_tracks.length),
+    album_image = ctx.song_tracks[0] === undefined ? '' : `https://freemusicarchive.org/file/${ctx.song_tracks[rand].album_image_file}`
   let handleTest = function() {
     console.log('this works');
   };
   return (
     <InfoContainer>
       <ArtCover>
-        <img height="230px" width="230px" src="https://picsum.photos/300/300/?random"/>
+        <img height="230px" width="230px" src={album_image || ''}/>
       </ArtCover>
       <InfoName>
         {ctx.playlist_name}
@@ -48,3 +50,5 @@ const Info = () => {
 };
 
 export default Info;
+
+// <img height="230px" width="230px" src="https://picsum.photos/300/300/?random"/>

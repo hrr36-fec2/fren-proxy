@@ -12,7 +12,7 @@ export const Container = sc.div`
   font-family     : 'Montserrat', sans-serif;
   color           : #fff;
   display         : flex;
-  padding         : 1rem 2rem;
+  padding         : 1rem 1rem;
 `;
 
 // --- Info
@@ -64,6 +64,7 @@ export const InfoPlayButton = sc.button`
 export const ListContainer = sc.ul`
   width: 80%;
   list-style: none;
+  padding: 0 1rem;
 `;
 
 export const ListIcon = sc.i`
