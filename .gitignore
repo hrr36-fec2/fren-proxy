@@ -73,6 +73,7 @@ src/playlist/
 src/playback/
 src/recommends/
 src/xample/
+public/
 server/
 x/
 
