@@ -70,7 +70,6 @@ src/pl61-recommends/node_modules
 
 # temp ignore
 src/playlist/
-src/recommends/
 src/xample/
 public/
 server/
