@@ -65,7 +65,7 @@ typings/
 dist/
 
 # submodule dependencies
-src/pl61-recommends/node_modules
+public/
 
 # temp ignore
 src/playlist/client/
