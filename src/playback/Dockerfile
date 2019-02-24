@@ -1,9 +1,11 @@
 FROM node:alpine
 WORKDIR '/scootify/playback/'
 
-COPY . .
+COPY package.json .
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 3001
 

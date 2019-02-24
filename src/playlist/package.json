@@ -37,7 +37,6 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.1.0",
     "webpack": "^4.29.3",
