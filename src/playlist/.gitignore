@@ -60,24 +60,7 @@ typings/
 # next.js build output
 .next
 
-# folder and files created upon build
-.cache/
+# xtra
 dist/
-public/
-
-# submodule dependencies
-src/pl61-recommends/node_modules
-
-# temp ignore
-src/playlist/client/
-src/xample/
-public/
-server/
 x/
-
-Dockerrun.aws.json
-docker-compose.yml
 nodemon.json
-
-# bundler in mind
-# https://pax.js.org/

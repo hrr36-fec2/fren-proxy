@@ -1,0 +1,47 @@
+{
+  "name": "scootify-playlist",
+  "version": "1.0.0",
+  "description": "fec prj",
+  "author": "dnErf",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "scripts": {
+    "db:seed": "node server/db/seeds.js",
+    "test:backend": "jest server/tests",
+    "test:client": "jest client/",
+    "dev": "webpack --watch --mode development",
+    "dev:hot": "webpack-dev-server --content-base=www --inline --watch --hot",
+    "build": "webpack --mode production",
+    "server": "nodemon server/server.js",
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/runtime": "^7.3.1",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mariadb": "^2.0.3",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "styled-components": "^4.1.3"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.1.0",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
