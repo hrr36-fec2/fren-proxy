@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS hrr;
+
+USE hrr;
+
+DROP TABLE IF EXISTS tracks;
+
+CREATE TABLE tracks (
+  `_id` INTEGER NOT NULL AUTO_INCREMENT,
+  `track_id` VARCHAR(255) NOT NULL UNIQUE,
+  `title` VARCHAR(255) NOT NULL,
+  `artist` VARCHAR(255),
+  `album` VARCHAR(255),
+  PRIMARY KEY (_id)
+);
